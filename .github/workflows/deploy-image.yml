@@ -13,8 +13,11 @@ jobs:
       - name: Check out repository code
         uses: actions/checkout@v4
         
-      - name: Stop and remove existing container
-        run: docker-compose down --rmi all
+      - name: Stop container (tanpa rmi)
+        run: docker-compose down
+        
+      - name: Build ulang
+        run: docker-compose build
         
       - name: Start container
         run: docker-compose up -d
